@@ -1,0 +1,58 @@
+* body {
+  margin: 0;
+  box-sizing: border-box;
+}
+$primary-color: #517ded;
+@mixin button {
+  border: 0;
+  border-radius: 0.25rem;
+  background: $primary-color;
+  color: white;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+}
+@mixin title-type {
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 39px;
+}
+@mixin task-type {
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+}
+@mixin description-type {
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+.navbar {
+  width: 100%;
+  height: 5rem;
+  background-color: $primary-color;
+}
+.title {
+  @include title-type();
+}
+.task__title {
+  @include task-type();
+}
+.add-task-fab {
+  @include button();
+  width: 72px;
+  height: 72px;
+  border-radius: 36px;
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+}
