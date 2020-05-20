@@ -75,6 +75,7 @@ $secondary-color: #f06868;
   width: 500px;
   margin-bottom: 1rem;
 }
+
 .task__title {
   @include task-type();
 }
