@@ -14,30 +14,29 @@ class App extends React.Component {
       { id: 3, title: "Make Dinner", description: " ", completed: false },
       { id: 4, title: "Do Laundry", description: " ", completed: false },
     ],
-    user: { name: "Matt", avatarImg: { avatar } },
-    newTask: {
-      id: "",
-      title: "",
-      description: "",
-      completed: false,
-    },
+    user: { name: "Matt", avatarImg: avatar },
+    newTask: "",
   };
   handleChangeTask = (event) => {
-    this.setState({ title: event.target.value });
+    console.log(event.target);
+    let value = event.target.value;
+    this.setState((state) => ({
+      newTask: value,
+    }));
   };
   handleCheck = (event) => {
     this.setState({ completed: event.task.checked });
   };
   handleAddNewTask = () => {
     let newTaskObj = {
-      id: this.state.newTask.id,
-      title: this.state.newTask.title,
-      description: this.state.newTask.description,
-      completed: this.state.newTask.completed,
+      id: this.state.todoList.length + 1,
+      title: this.state.newTask,
+      description: "",
+      completed: false,
     };
     this.setState((state) => ({
       todoList: [...state.todoList, newTaskObj],
-      title: "",
+      newTask: "",
     }));
   };
   render() {
@@ -49,11 +48,9 @@ class App extends React.Component {
           <input
             type="text"
             onChange={this.handleChangeTask}
-            value={this.state.newTask.title}
+            value={this.state.newTask}
           />
-          <button onClick={this.handleAddNewTask}>
-            <p>ADD</p>
-          </button>
+          <button onClick={this.handleAddNewTask}>ADD</button>
 
           <div className="todo-cont">
             {this.state.todoList.map((taskObject, index) => (
