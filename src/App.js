@@ -78,13 +78,16 @@ class App extends React.Component {
 
   handleChangeTodo = (event, id) => {
     console.log("check!");
+    console.log(event);
     // const id = event.target.id;
-    // const value = event.target.checked;
+    // let value = event.target.checked;
     this.setState((state) => {
       let newList = state.todoList.map((task) => {
         if (task.id === id) {
+          task.completed = event.target.checked;
           // this.handleChange();
           return Object.assign({}, task, { completed: task.completed });
+          // return [...state.todoList, newList];
         } else {
           return task;
         }
@@ -121,16 +124,21 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="app-cont">
         <Header />
-        <div className="app-cont">
+        <div className="list-cont">
           <ListTitle user={this.state.user} />
-          <input
-            type="text"
-            onChange={this.handleChangeTask}
-            value={this.state.newTask}
-          />
-          <button onClick={this.handleAddNewTask}>ADD</button>
+          <div>
+            <input
+              type="text"
+              onChange={this.handleChangeTask}
+              value={this.state.newTask}
+              className="add-task-feild"
+            />
+            <button onClick={this.handleAddNewTask} className="add-task-btn">
+              ADD
+            </button>
+          </div>
 
           <div className="todo-cont">
             {this.state.todoList.map((taskObject) => (
@@ -143,7 +151,7 @@ class App extends React.Component {
             ))}
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }

@@ -13,7 +13,7 @@ $secondary-color: #f06868;
   line-height: 1.2;
   white-space: nowrap;
   text-decoration: none;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.75rem;
   margin: 0.25rem;
 }
 @mixin title-type {
@@ -45,7 +45,16 @@ $secondary-color: #f06868;
   background-color: $primary-color;
 }
 .app-cont {
-  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-items: center;
+}
+.list-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .avatar-img {
   width: 50px;
@@ -76,6 +85,12 @@ $secondary-color: #f06868;
   margin-bottom: 1rem;
 }
 
+.task-cont {
+  display: flex;
+
+  width: 300px;
+}
+
 .task__title {
   @include task-type();
 }
@@ -94,4 +109,18 @@ $secondary-color: #f06868;
     position: relative;
     top: 2px;
   }
+}
+.destructive-btn {
+  @include button();
+  background-color: $secondary-color;
+}
+
+.add-task-btn {
+  @include button();
+}
+
+.add-task-feild {
+  width: 12rem;
+  height: 1.5rem;
+  @include description-type();
 }
