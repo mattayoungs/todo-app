@@ -7,6 +7,9 @@ import ListTitle from "./components/ListTitle";
 
 import Task from "./components/Task";
 
+const TODO_LIST_KEY = "myapp_todoList";
+// let todoStr = JSON.stringify(this.state.todoList);
+
 class App extends React.Component {
   state = {
     todoList: [
@@ -38,6 +41,19 @@ class App extends React.Component {
     user: { name: "Matt", avatarImg: avatar },
     newTask: "",
   };
+
+  componentDidMount(state) {
+    const listStr = localStorage.getItem(TODO_LIST_KEY);
+    if (listStr) {
+      this.setState((state = { todoList: JSON.parse(listStr) }));
+    }
+  }
+  componentDidUpdate(_, prevState) {
+    if (this.state.todoList !== prevState.todoList) {
+      localStorage.setItem(TODO_LIST_KEY, JSON.stringify(this.state.todoList));
+    }
+  }
+
   handleChangeTask = (event) => {
     let value = event.target.value;
     this.setState((state) => ({
@@ -54,40 +70,14 @@ class App extends React.Component {
     this.setState({ [name]: value });
   };
 
-  // handleCheck = (event, id) => {
-  //   const checked = event.target.checked;
-
-  //   this.setState((state) => {
-  //     let newTodoList = state.todoList.map((task) => {
-  //       if (task.id === id) {
-  //         return [...this.state.todoList.task.completed, checked];
-  //       } else {
-  //         return task;
-  //       }
-  //     });
-  // return {
-  //   todoList: Object.assign({}, state.todoList, { completed: checked }),
-  //   [task]: [...this.state.todoList[task].completed, checked],
-  // };
-  //   });
-  // };
-
-  //   The handleChangeTodo method should take in the id of the item which has been modified.
-  // Then you can .map() through the todo list, find the matching item id, and replace it with the new values.
-  // This should work just like the Changing an Item section in the Handling Events reading.
-
   handleChangeTodo = (event, id) => {
     console.log("check!");
     console.log(event);
-    // const id = event.target.id;
-    // let value = event.target.checked;
+    let value = event.target.checked;
     this.setState((state) => {
       let newList = state.todoList.map((task) => {
         if (task.id === id) {
-          task.completed = event.target.checked;
-          // this.handleChange();
-          return Object.assign({}, task, { completed: task.completed });
-          // return [...state.todoList, newList];
+          return Object.assign({}, task, { completed: value });
         } else {
           return task;
         }

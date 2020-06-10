@@ -3,7 +3,7 @@ import React from "react";
 import arrow from "../icon/mdi_keyboard_arrow_down.svg";
 
 function Task(props) {
-  const handleChangeTodo = () => props.onChangeTodo(props.task.id);
+  const handleChangeTodo = (event) => props.onChangeTodo(event, props.task.id);
   const handleDeleteTask = () => props.onDelete(props.task.id);
   return (
     <div className="task-cont">

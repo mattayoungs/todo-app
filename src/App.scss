@@ -124,3 +124,31 @@ $secondary-color: #f06868;
   height: 1.5rem;
   @include description-type();
 }
+
+.dash-cont {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(137.93deg, #517ded 23.83%, #f06868 98.91%),
+    $primary-color;
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  height: 15rem;
+  border-radius: 2rem;
+  background-color: white;
+  &-welcome {
+    @include description-type();
+  }
+  &-time {
+    @include title-type();
+    font-size: 48px;
+  }
+}
