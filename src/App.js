@@ -4,8 +4,8 @@ import "./App.scss";
 import avatar from "./imgs/useravatar1.JPG";
 import Header from "./components/Header";
 import ListTitle from "./components/ListTitle";
-
 import Task from "./components/Task";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const TODO_LIST_KEY = "myapp_todoList";
 // let todoStr = JSON.stringify(this.state.todoList);
@@ -114,34 +114,36 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app-cont">
-        <Header />
-        <div className="list-cont">
-          <ListTitle user={this.state.user} />
-          <div>
-            <input
-              type="text"
-              onChange={this.handleChangeTask}
-              value={this.state.newTask}
-              className="add-task-feild"
-            />
-            <button onClick={this.handleAddNewTask} className="add-task-btn">
-              ADD
-            </button>
-          </div>
-
-          <div className="todo-cont">
-            {this.state.todoList.map((taskObject) => (
-              <Task
-                task={taskObject}
-                key={taskObject.id}
-                onChangeTodo={this.handleChangeTodo}
-                onDelete={this.handleDeleteTask}
+      <Router>
+        <div className="app-cont">
+          <Header />
+          <div className="list-cont">
+            <ListTitle user={this.state.user} />
+            <div>
+              <input
+                type="text"
+                onChange={this.handleChangeTask}
+                value={this.state.newTask}
+                className="add-task-feild"
               />
-            ))}
+              <button onClick={this.handleAddNewTask} className="add-task-btn">
+                ADD
+              </button>
+            </div>
+
+            <div className="todo-cont">
+              {this.state.todoList.map((taskObject) => (
+                <Task
+                  task={taskObject}
+                  key={taskObject.id}
+                  onChangeTodo={this.handleChangeTodo}
+                  onDelete={this.handleDeleteTask}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
