@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 import arrow from "../icon/mdi_keyboard_arrow_down.svg";
 
@@ -21,7 +22,12 @@ function Task(props) {
           {props.task.title}
         </label>
       </div>
-      <img className="task-drop-icon" src={arrow} alt="" />
+      <img
+        className="task-drop-icon"
+        src={arrow}
+        alt=""
+        onClick={() => props.history.push("/todolist/" + props.task.id)}
+      />
       <button onClick={handleDeleteTask} className="destructive-btn">
         Delete Task
       </button>
@@ -29,4 +35,4 @@ function Task(props) {
   );
 }
 
-export default Task;
+export default withRouter(Task);
