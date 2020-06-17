@@ -17,21 +17,21 @@ $secondary-color: #f06868;
   margin: 0.25rem;
 }
 @mixin title-type {
-  font-family: Helvetica Neue;
+  font-family: Helvetica;
   font-style: normal;
   font-weight: bold;
   font-size: 32px;
   line-height: 39px;
 }
 @mixin task-type {
-  font-family: Helvetica Neue;
+  font-family: Helvetica;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 22px;
 }
 @mixin description-type {
-  font-family: Helvetica Neue;
+  font-family: Helvetica;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
