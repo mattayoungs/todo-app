@@ -2,13 +2,39 @@ import React from "react";
 
 function ListTitle(props) {
   return (
-    <div className="title-cont">
-      <div className="avatar-img">
-        <img src={props.user.avatarImg} alt={props.user.name} />
+    <div style={styles.titleCont}>
+      <div style={styles.avatarCont}>
+        <img
+          style={styles.profileImg}
+          src={props.user.avatarImg}
+          alt={props.user.name}
+        />
       </div>
-      <h1 className="title">{props.user.name}'s To Dos</h1>
+      <h1 style={styles.title}>{props.user.name}'s To Dos</h1>
     </div>
   );
 }
-
+const styles = {
+  titleCont: {
+    display: "flex",
+    alignItems: "center",
+  },
+  avatarCont: {
+    width: "50px",
+    height: "50px",
+    paddingRight: "1rem",
+  },
+  profileImg: {
+    height: "100%",
+    objectFit: "cover",
+    borderRadius: "25px",
+  },
+  title: {
+    fontFamily: "Helvetica",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "32px",
+    lineHeight: "39px",
+  },
+};
 export default ListTitle;

@@ -37,118 +37,117 @@ $secondary-color: #f06868;
   font-size: 18px;
   line-height: 21px;
 }
-.navbar {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  height: 5rem;
-  background-color: $primary-color;
-}
-.app-cont {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  justify-items: center;
-}
-.list-cont {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.avatar-img {
-  width: 50px;
-  height: 50px;
-  padding-right: 1rem;
-  img {
-    height: 100%;
-    object-fit: cover;
-    border-radius: 25px;
-  }
-}
-.todo-cont {
-  display: flex;
-  flex-direction: column;
-  align-content: left;
-}
-.title-cont {
-  display: flex;
-  align-items: center;
-}
-.title {
-  @include title-type();
-}
-.task {
-  display: flex;
-  align-items: center;
-  width: 500px;
-  margin-bottom: 1rem;
-}
+// .navbar {
+//   display: flex;
+//   justify-content: space-evenly;
+//   width: 100%;
+//   height: 5rem;
+//   background-color: $primary-color;
+// }
+// .app-cont {
+//   display: flex;
+//   flex-direction: column;
+//   align-content: center;
+//   justify-items: center;
+// }
+// .list-cont {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+// }
+// .avatar-img {
+//   width: 50px;
+//   height: 50px;
+//   padding-right: 1rem;
+//   img {
+//     height: 100%;
+//     object-fit: cover;
+//     border-radius: 25px;
+//   }
+// }
+// .todo-cont {
+//   display: flex;
+//   flex-direction: column;
+//   align-content: left;
+// }
+// .title-cont {
+//   display: flex;
+//   align-items: center;
+// }
+// .title {
+//   @include title-type();
+// }
+// .task {
+//   display: flex;
+//   align-items: center;
+//   width: 500px;
+//   margin-bottom: 1rem;
+// }
 
-.task-cont {
-  display: flex;
+// .task-cont {
+//   display: flex;
 
-  width: 300px;
-}
+//   width: 300px;
+// }
 
-.task__title {
-  @include task-type();
-}
-.task-drop-icon {
-  justify-self: end;
-}
-.add-task-fab {
-  @include button();
-  width: 64px;
-  height: 64px;
-  border-radius: 36px;
-  position: fixed;
-  right: 100px;
-  bottom: 100px;
-  img {
-    position: relative;
-    top: 2px;
-  }
-}
-.destructive-btn {
-  @include button();
-  background-color: $secondary-color;
-}
+// .task__title {
+//   @include task-type();
+// }
+// .task-drop-icon {
+//   justify-self: end;
+// }
+// .add-task-fab {
+//   @include button();
+//   width: 64px;
+//   height: 64px;
+//   border-radius: 36px;
+//   position: fixed;
+//   right: 100px;
+//   bottom: 100px;
+//   img {
+//     position: relative;
+//     top: 2px;
+//   }
+// }
+// .destructive-btn {
+//   @include button();
+//   background-color: $secondary-color;
+// }
 
-.add-task-btn {
-  @include button();
-}
+// .add-task-btn {
+//   @include button();
+// }
 
-.add-task-feild {
-  width: 12rem;
-  height: 1.5rem;
-  @include description-type();
-}
+// .add-task-feild {
+//   width: 12rem;
+//   height: 1.5rem;
+//   @include description-type();
+// }
 
-.dash-cont {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(137.93deg, #517ded 23.83%, #f06868 98.91%),
-    $primary-color;
-}
+// .dash-cont {
+//   width: 100vw;
+//   height: 100vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background: linear-gradient(137.93deg, #517ded 23.83%, #f06868 98.91%),
+// }
 
-.clock {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 20rem;
-  height: 15rem;
-  border-radius: 2rem;
-  background-color: white;
-  &-welcome {
-    @include description-type();
-  }
-  &-time {
-    @include title-type();
-    font-size: 48px;
-  }
-}
+// .clock {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   width: 20rem;
+//   height: 15rem;
+//   border-radius: 2rem;
+//   background-color: white;
+//   &-welcome {
+//     @include description-type();
+//   }
+//   &-time {
+//     @include title-type();
+//     font-size: 48px;
+//   }
+// }

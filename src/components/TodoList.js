@@ -146,25 +146,25 @@ class TodoList extends React.Component {
           />
         </Route>
         <Route path="/todolist">
-          <div className="app-cont">
-            <div className="list-cont">
+          <div style={styles.appCont}>
+            <div style={styles.listCont}>
               <ListTitle user={this.state.user} />
               <div>
                 <input
                   type="text"
                   onChange={this.handleChangeTask}
                   value={this.state.newTask}
-                  className="add-task-feild"
+                  style={styles.addTaskFeild}
                 />
                 <button
                   onClick={this.handleAddNewTask}
-                  className="add-task-btn"
+                  style={styles.priButton}
                 >
                   ADD
                 </button>
               </div>
 
-              <div className="todo-cont">
+              <div style={styles.todoCont}>
                 {this.state.todoList.map((taskObject) => (
                   <Task
                     task={taskObject}
@@ -181,5 +181,46 @@ class TodoList extends React.Component {
     );
   }
 }
+
+const styles = {
+  appCont: {
+    display: "flex",
+    flexDirection: "column",
+    alignContent: "center",
+    justifyItems: "center",
+  },
+  listCont: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  addTaskFeild: {
+    width: "12rem",
+    height: "1.5rem",
+    fontFamily: "Helvetica",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "18px",
+    lineHeight: "21px",
+  },
+  priButton: {
+    border: "0",
+    borderRadius: "0.25rem",
+    background: "#517ded",
+    color: "#ffffff",
+    fontSize: "1rem",
+    lineHeight: "1.2",
+    whiteSpace: "nowrap",
+    textDecoration: "none",
+    padding: "0.25rem 0.75rem",
+    margin: "0.25rem",
+  },
+  todoCont: {
+    display: "flex",
+    flexDirection: "column",
+    alignContent: "left",
+  },
+};
 
 export default TodoList;

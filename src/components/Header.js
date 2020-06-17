@@ -6,7 +6,7 @@ import { NavLink, withRouter } from "react-router-dom";
 
 function Header() {
   return (
-    <header className="navbar">
+    <header style={styles.navBar}>
       <NavLink to="/todolist">
         <img src={list} alt="" />
       </NavLink>
@@ -19,5 +19,16 @@ function Header() {
     </header>
   );
 }
+
+const styles = {
+  navBar: {
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "100%",
+    height: "5rem",
+    backgroundColor: "#517ded",
+  },
+};
 
 export default withRouter(Header);
