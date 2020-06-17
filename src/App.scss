@@ -1,0 +1,154 @@
+* body {
+  margin: 0;
+  box-sizing: border-box;
+}
+$primary-color: #517ded;
+$secondary-color: #f06868;
+@mixin button {
+  border: 0;
+  border-radius: 0.25rem;
+  background: $primary-color;
+  color: white;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0.25rem 0.75rem;
+  margin: 0.25rem;
+}
+@mixin title-type {
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 39px;
+}
+@mixin task-type {
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+}
+@mixin description-type {
+  font-family: Helvetica Neue;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 5rem;
+  background-color: $primary-color;
+}
+.app-cont {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-items: center;
+}
+.list-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.avatar-img {
+  width: 50px;
+  height: 50px;
+  padding-right: 1rem;
+  img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+  }
+}
+.todo-cont {
+  display: flex;
+  flex-direction: column;
+  align-content: left;
+}
+.title-cont {
+  display: flex;
+  align-items: center;
+}
+.title {
+  @include title-type();
+}
+.task {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  margin-bottom: 1rem;
+}
+
+.task-cont {
+  display: flex;
+
+  width: 300px;
+}
+
+.task__title {
+  @include task-type();
+}
+.task-drop-icon {
+  justify-self: end;
+}
+.add-task-fab {
+  @include button();
+  width: 64px;
+  height: 64px;
+  border-radius: 36px;
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+  img {
+    position: relative;
+    top: 2px;
+  }
+}
+.destructive-btn {
+  @include button();
+  background-color: $secondary-color;
+}
+
+.add-task-btn {
+  @include button();
+}
+
+.add-task-feild {
+  width: 12rem;
+  height: 1.5rem;
+  @include description-type();
+}
+
+.dash-cont {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(137.93deg, #517ded 23.83%, #f06868 98.91%),
+    $primary-color;
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  height: 15rem;
+  border-radius: 2rem;
+  background-color: white;
+  &-welcome {
+    @include description-type();
+  }
+  &-time {
+    @include title-type();
+    font-size: 48px;
+  }
+}
