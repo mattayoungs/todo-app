@@ -5,6 +5,8 @@ import ListTitle from "./ListTitle";
 import Task from "./Task";
 import TaskDetail from "./TaskDetail";
 import { Switch, Route } from "react-router-dom";
+import styled from "styled-components";
+import Button from "./Button";
 
 const TODO_LIST_KEY = "myapp_todoList";
 
@@ -146,25 +148,21 @@ class TodoList extends React.Component {
           />
         </Route>
         <Route path="/todolist">
-          <div style={styles.appCont}>
-            <div style={styles.listCont}>
+          <AppCont>
+            <ListCont>
               <ListTitle user={this.state.user} />
               <div>
-                <input
+                <AddTaskFeild
                   type="text"
                   onChange={this.handleChangeTask}
                   value={this.state.newTask}
-                  style={styles.addTaskFeild}
                 />
-                <button
-                  onClick={this.handleAddNewTask}
-                  style={styles.priButton}
-                >
+                <Button primary onClick={this.handleAddNewTask}>
                   ADD
-                </button>
+                </Button>
               </div>
 
-              <div style={styles.todoCont}>
+              <TodoCont>
                 {this.state.todoList.map((taskObject) => (
                   <Task
                     task={taskObject}
@@ -173,54 +171,42 @@ class TodoList extends React.Component {
                     onDelete={this.handleDeleteTask}
                   />
                 ))}
-              </div>
-            </div>
-          </div>
+              </TodoCont>
+            </ListCont>
+          </AppCont>
         </Route>
       </Switch>
     );
   }
 }
 
-const styles = {
-  appCont: {
-    display: "flex",
-    flexDirection: "column",
-    alignContent: "center",
-    justifyItems: "center",
-  },
-  listCont: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  addTaskFeild: {
-    width: "12rem",
-    height: "1.5rem",
-    fontFamily: "Helvetica",
-    fontStyle: "normal",
-    fontWeight: "normal",
-    fontSize: "18px",
-    lineHeight: "21px",
-  },
-  priButton: {
-    border: "0",
-    borderRadius: "0.25rem",
-    background: "#517ded",
-    color: "#ffffff",
-    fontSize: "1rem",
-    lineHeight: "1.2",
-    whiteSpace: "nowrap",
-    textDecoration: "none",
-    padding: "0.25rem 0.75rem",
-    margin: "0.25rem",
-  },
-  todoCont: {
-    display: "flex",
-    flexDirection: "column",
-    alignContent: "left",
-  },
-};
+const AppCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-items: center;
+`;
+
+const ListCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const AddTaskFeild = styled.input`
+  width: 12rem;
+  height: 1.5rem;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+`;
+const TodoCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: left;
+`;
 
 export default TodoList;

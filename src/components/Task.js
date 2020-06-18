@@ -1,14 +1,15 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-
 import arrow from "../icon/mdi_keyboard_arrow_down.svg";
+import styled from "styled-components";
+import BadButton from "./BadButton";
 
 function Task(props) {
   const handleChangeTodo = (event) => props.onChangeTodo(event, props.task.id);
   const handleDeleteTask = () => props.onDelete(props.task.id);
   return (
-    <div style={styles.taskCont}>
-      <div style={styles.task}>
+    <TaskCont>
+      <TaskStyle>
         <input
           onChange={handleChangeTodo}
           defaultChecked={props.task.completed}
@@ -17,57 +18,48 @@ function Task(props) {
           name=""
           id={props.task.id}
         />
-        <label style={styles.taskTitle} for={props.task.id}>
+        <TaskTitle completeStyle={props.task.completed} for={props.task.id}>
           {props.task.title}
-        </label>
-      </div>
+        </TaskTitle>
+      </TaskStyle>
       <img
-        style={styles.taskDropIcon}
         src={arrow}
         alt=""
         onClick={() => props.history.push("/todolist/" + props.task.id)}
       />
-      <button onClick={handleDeleteTask} style={styles.deleteButton}>
-        Delete Task
-      </button>
-    </div>
+      {/* <BadButton onClick={handleDeleteTask}>Delete</BadButton> */}
+    </TaskCont>
   );
 }
 
-const styles = {
-  taskCont: {
-    display: "flex",
+const TaskCont = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 300px;
+  padding: 0rem 1rem;
+  &:hover{
+    box-shadow 2px 2px 5px #c2c2c2
+  }
+`;
 
-    width: "300px",
-  },
-  task: {
-    display: "flex",
-    alignItems: "center",
-    width: "500px",
-    marginBottom: "1rem",
-  },
-  taskTitle: {
-    fontFamily: "Helvetica",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: "18px",
-    lineHeight: "22px",
-  },
-  taskDropIcon: {
-    justifySelf: "end",
-  },
-  deleteButton: {
-    border: "0",
-    borderRadius: "0.25rem",
-    background: "#f06868",
-    color: "#ffffff",
-    fontSize: "1rem",
-    lineHeight: "1.2",
-    whiteSpace: "nowrap",
-    textDecoration: "none",
-    padding: "0.25rem 0.75rem",
-    margin: "0.25rem",
-  },
-};
+const TaskStyle = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 5px;
+  margin-bottom: 1rem;
+`;
+
+const TaskTitle = styled.p`
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  padding-left: 0.5rem;
+  opacity: ${(props) => (props.completeStyle ? 0.2 : 1)};
+`;
 
 export default withRouter(Task);
