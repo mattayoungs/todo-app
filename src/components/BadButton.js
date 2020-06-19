@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const BadButton = styled.button`
+  align-self: flex-start;
+
   border: 0;
   border-radius: 0.25rem;
   background: ${(props) => (props.primary ? "#f06868" : "#ffffff")};

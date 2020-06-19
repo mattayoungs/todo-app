@@ -1,5 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import Button from "./Button";
+import BadButton from "./BadButton";
 
 class TaskDetail extends React.Component {
   state = {
@@ -48,12 +50,10 @@ class TaskDetail extends React.Component {
   render() {
     return (
       <div style={styles.formCont}>
-        <button
-          style={styles.priButton}
-          onClick={() => this.props.history.push("/todolist")}
-        >
-          back
-        </button>
+        <Button onClick={() => this.props.history.push("/todolist")}>
+          Back
+        </Button>
+
         <form
           style={styles.form}
           onSubmit={(event) => this.handleSubmit(event)}
@@ -117,15 +117,17 @@ class TaskDetail extends React.Component {
             </label>
           </div>
 
-          {/* <button
-            onClick={(event) => {
-              event.preventDefault();
-              this.handleDeleteTask();
-            }}
-          >
-            Delete Task
-          </button> */}
-          <button style={styles.priButton}>Update Task</button>
+          <div>
+            <BadButton
+              onClick={(event) => {
+                event.preventDefault();
+                this.handleDeleteTask();
+              }}
+            >
+              Delete
+            </BadButton>
+            <Button primary>Update</Button>
+          </div>
         </form>
       </div>
     );
@@ -142,19 +144,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
   },
-  priButton: {
-    border: "0",
-    borderRadius: "0.25rem",
-    background: "#517ded",
-    color: "#ffffff",
-    fontSize: "1rem",
-    lineHeight: "1.2",
-    whiteSpace: "nowrap",
-    textDecoration: "none",
-    padding: "0.25rem 0.75rem",
-    margin: "0.25rem",
-    width: "8rem",
-  },
+
   inputLabel: {
     fontFamily: "Helvetica",
     fontStyle: "normal",
