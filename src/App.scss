@@ -2,41 +2,42 @@
   margin: 0;
   box-sizing: border-box;
 }
-$primary-color: #517ded;
-$secondary-color: #f06868;
-@mixin button {
-  border: 0;
-  border-radius: 0.25rem;
-  background: $primary-color;
-  color: white;
-  font-size: 1rem;
-  line-height: 1.2;
-  white-space: nowrap;
-  text-decoration: none;
-  padding: 0.25rem 0.75rem;
-  margin: 0.25rem;
-}
-@mixin title-type {
+// $primary-color: #517ded;
+// $secondary-color: #f06868;
+// @mixin button {
+//   border: 0;
+//   border-radius: 0.25rem;
+//   background: $primary-color;
+//   color: white;
+//   font-size: 1rem;
+//   line-height: 1.2;
+//   white-space: nowrap;
+//   text-decoration: none;
+//   padding: 0.25rem 0.75rem;
+//   margin: 0.25rem;
+// }
+.title-type {
   font-family: Helvetica;
   font-style: normal;
   font-weight: bold;
   font-size: 32px;
   line-height: 39px;
 }
-@mixin task-type {
+.task-type {
   font-family: Helvetica;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 22px;
 }
-@mixin description-type {
+.description-type {
   font-family: Helvetica;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 21px;
 }
+
 // .navbar {
 //   display: flex;
 //   justify-content: space-evenly;
