@@ -5,6 +5,7 @@ import TodoList from "./components/TodoList";
 import Dashboard from "./components/Dashboard";
 import Register from "./components/Register";
 import Header from "./components/Header";
+import Login from "./components/Login";
 
 class App extends React.Component {
   state = {};
@@ -12,16 +13,23 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
         <Switch>
-          <Route path="/todolist">
-            <TodoList />
+          <Route exact path={["/", "/login"]}>
+            <Login />
           </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-          <Route path="/">
+          <Route exact path="/register">
             <Register />
+          </Route>
+          <Route>
+            <Header />
+            <Switch>
+              <Route path="/todolist">
+                <TodoList />
+              </Route>
+              <Route path="/dashboard">
+                <Dashboard />
+              </Route>
+            </Switch>
           </Route>
         </Switch>
       </div>

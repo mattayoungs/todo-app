@@ -2,6 +2,7 @@ import React from "react";
 import InputText from "./InputText.js";
 import styled from "styled-components";
 import Button from "./Button";
+import { NavLink, withRouter } from "react-router-dom";
 
 const validUserInfo = {
   email: "test@kenzie.academy",
@@ -27,7 +28,7 @@ class Login extends React.Component {
       this.state.email === validUserInfo.email &&
       this.state.password === validUserInfo.password
     ) {
-      alert("yep!");
+      this.props.history.push("/dashboard");
       this.setState({ error: "" });
     } else {
       this.setState({
@@ -68,7 +69,9 @@ class Login extends React.Component {
           </FlexCol>
           <Button>Login</Button>
         </form>
-        <Body>Not signed up yet? Register Here!</Body>
+        <NavLink to="/register">
+          <Body>Not signed up yet? Register Here!</Body>
+        </NavLink>
       </FlexCol>
     );
   }
@@ -105,4 +108,4 @@ const FlexCol = styled.div`
   padding-bottom: 2rem;
 `;
 
-export default Login;
+export default withRouter(Login);

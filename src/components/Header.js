@@ -10,10 +10,10 @@ function Header() {
       <NavLink to="/todolist">
         <img src={list} alt="" />
       </NavLink>
-      <NavLink to="/">
+      <NavLink to="/dashboard">
         <img src={timer} alt="" />
       </NavLink>
-      <NavLink to="/">
+      <NavLink to="/login">
         <img src={settings} alt="" />
       </NavLink>
     </header>
